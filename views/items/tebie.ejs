@@ -1,0 +1,25 @@
+<div class="selectka">
+        <span class="top-line">特别推荐
+
+            <span class="float-right top-menu-tui"> <a href="#">个人博客</a>/<a href="#">网站制作</a>/<a
+                    href="#">设计</a></span>
+        </span>
+        <div class="tui-text">
+            <%for(var i=0;i<tui.length;i++){%>
+                    <div>
+                            <div class="tui-s-img">
+                                <img src="<%=tui[i].logo%>" alt="">
+                            </div>
+                            <div class="tui-s-name">
+                                <b><%=tui[i].title%></b>
+                            </div>
+                            <div class="tui-s-content">
+                                <span><%=tui[i].desinfo%></span>
+                            </div>
+                            <div class="tui-s-btn">
+                                <a href="/detail?id=<%=tui[i].id%>">+文章阅读</a>
+                            </div>
+                        </div>
+            <%}%>
+        </div>
+    </div>

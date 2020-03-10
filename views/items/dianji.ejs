@@ -1,0 +1,25 @@
+<div class="blognew">
+    <span>点击排行</span>
+    <div class="ka-img my-3">
+        <a href="/detail?id=<%=clickpai[0].id%>">
+            <div><span><%=clickpai[0].title%></span></div>
+            <img src="<%=clickpai[0].logo%>" alt="">
+        </a>
+    </div>
+    <div>
+        <ul class="list-inline ckpai">
+            <%for(var i=1;i<clickpai.length;i++){%>
+            <li>
+                <a href="/detail?id=<%=clickpai[i].id%>">
+                    <% if(i<4){%>
+                    <span class="oranbg"><%=i%></span>
+                    <%}else{%>
+                    <span><%=i%></span>
+                    <%}%>
+                    <span><%=clickpai[i].title%></span>
+                </a>
+            </li>
+            <%}%>
+            </ul>
+        </div>
+    </div>

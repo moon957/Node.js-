@@ -1,0 +1,49 @@
+<div class="container banner">
+    <div class="row banneritem">
+        <div class="col-lg-6">
+            <div class="items">
+                <img src="banner/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="col-lg-3 hitem">
+            <%for(var i=0;i<randomblog.length;i++){%>
+            <div>
+                <a href="/detail?id=<%=randomblog[i].id%>">
+                    <img src="<%=randomblog[i].logo%>" alt="">
+                    <span><%=randomblog[i].title%></span>
+                </a>
+            </div>
+            <%}%>
+            </div>
+            <div class="col-lg-3">
+                <div class="user">
+                    <span class="u-title">我的名片</span>
+                    <ul class="list-inline user-info">
+                        <li><span>网名：</span><%=userinfo[0].nickname%></li>
+            <li><span>职业：</span><%=userinfo[0].job%></li>
+            <li><span>现居：</span><%=userinfo[0].address%></li>
+            <li><span>Email：</span><%=userinfo[0].email%></li>
+            <li><span>QQ：</span><%=userinfo[0].QQ%></li>
+            </ul>
+            <div class="linkmore">
+                <a href="/">
+                    <div class="ceng"></div>
+                    <img src="icon/shouye-01.png" alt="">
+                </a>
+                <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=1121176958@qq.com">
+                    <div class="ceng"></div>
+                    <img src="icon/youjian.png" alt="">
+                </a>
+                <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1121176958&amp;site=qq&amp;menu=yes">
+                    <div class="ceng"></div>
+                    <img src="icon/qq.png" alt="">
+                </a>
+                <a href="#">
+                    <div class="ceng"></div>
+                    <img src="icon/weixin.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

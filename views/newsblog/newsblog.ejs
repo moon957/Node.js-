@@ -1,0 +1,10 @@
+<div class="blognew">
+    <span>最近更新</span>
+    <div>
+        <ul class="blognewslist">
+            <% for(var i=0;i<updatenow.length;i++){%>
+            <li><a href="/detail?id=<%=updatenow[i].id%>"><%=updatenow[i].title%></a></li>
+            <%}%>
+        </ul>
+    </div>
+</div>

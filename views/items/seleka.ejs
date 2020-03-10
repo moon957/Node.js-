@@ -1,0 +1,56 @@
+<div class="selectka">
+    <div class="selectka-title">
+        <span class="linebalck">个人博客日记</span>
+        <span>网站建设</span>
+        <span>推荐工具</span>
+        <span>设计心得</span>
+    </div>
+    <div class="ka-par">
+        <div>
+            <div class="row h-100">
+                <div class="col-lg-4">
+                    <div class="ka-img">
+                        <a href="/detail?id=<%=xuanka[0].id%>">
+                            <div><span><%=xuanka[0].title%></span></div>
+                            <img src="<%=xuanka[0].logo%>" alt="">
+                        </a>
+                    </div>
+                    <div class="ka-img">
+                        <a href="/detail?id=<%=xuanka[1].id%>">
+                            <div><span><%=xuanka[1].title%></span></div>
+                            <img src="<%=xuanka[1].logo%>" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <ul class="list-inline ka-menu">
+                        <%for(var i=2;i<xuanka.length;i++){%>
+                        <%if(i==2){%>
+                        <li class="addlicolor">
+                            <a href="/detail?id=<%=xuanka[i].id%>">
+                                <span class="spanBg"><%=i-1%></span><span class="fontweight"><%=xuanka[i].title%></span>
+                                <div class="ka-menu-content">
+                                    <%=xuanka[i].desinfo%>
+                                </div>
+                            </a>
+                        </li>
+                        <%}else{%>
+                        <li>
+                            <a href="/detail?id=<%=xuanka[i].id%>">
+                                <span><%=i-1%></span><span><%=xuanka[i].title%></span>
+                                <div class="ka-menu-content">
+                                    <%=xuanka[i].desinfo%>
+                                </div>
+                            </a>
+                        </li>
+                        <%}%>
+                        <%}%>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</div>

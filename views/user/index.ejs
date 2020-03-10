@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>管理界面</title>
+    <link rel="stylesheet" href="css/userindex.css">
+    <script src="js/jquery-1.9.1.js"></script>
+    <script>
+        $(function () {
+            if (window.history && window.history.pushState) {
+                history.pushState("forward", null, location.href);
+                $(window).on("popstate", function () {
+
+                    history.pushState("forward", null, location.href);
+
+                });
+            }
+            $("#file").change(function () {
+                changepic();
+            });
+            //实现图片预览
+            function changepic() {
+                var reads = new FileReader();
+                var f = $("#file")[0].files[0];
+                reads.readAsDataURL(f);
+                reads.onload = function (e) {
+                    $("#userface").attr("src", this.result);
+                };
+            }
+        });
+        function submitinfo(){
+            if(confirm("确认是否修改个人资料？？")){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="par">
+        <div class="par-top">
+            <span>欢迎,<span class="name"><%=userinfo[0].name%></span>登录</span>
+            <a href="/close">退出</a>
+        </div>
+        <div class="par-bot">
+            <div class="par-bot-left">
+                <ul class="left-nav">
+                    <li><a href="/userguan">用户的信息</a></li>
+                    <li><a href="/sendblog">发表博客</a></li>
+                    <li><a href="/liusend">留言回复</a></li>
+                </ul>
+            </div>
+            <div class="par-bot-right">
+                <div class="userlist">
+                    <form action="/updateuser" method="POST" onsubmit="return submitinfo()" enctype="multipart/form-data">
+                        <ul class="user-info">
+                            <li><span>账号：</span><input type="text" name="userid"
+                                    value="<%=userinfo[0].userid%>"><span>密码：</span><input type="text"
+                                    value="<%=userinfo[0].userpwd%>" name="userpwd"></li>
+                            <li><span>昵称：</span><input type="text"
+                                    value="<%=userinfo[0].nickname%>" name="nickname"><span>姓名：</span><input type="text"
+                                    value="<%=userinfo[0].name%>" name="name"></li>
+                            <li><span>工作：</span><input type="text" name="job" value="<%=userinfo[0].job%>"><span>地址：</span><input
+                                    type="text" name="address" value="<%=userinfo[0].address%>"></li>
+                            <li><span>邮箱：</span><input name="email" type="text" value="<%=userinfo[0].email%>"><span>QQ：</span><input
+                                    type="text" name="QQ" value="<%=userinfo[0].QQ%>"></li>
+                            <li><span>个人简介：</span><br><textarea name="descinfo" class="textcontnet"><%=userinfo[0].descinfo%></textarea>
+                            </li>
+                            <li><span>个人评价：</span><br><textarea
+                                    class="textcontnet" name="userdesinfo"><%=userinfo[0].userdesinfo%></textarea>
+                            </li>
+                        </ul>
+                        <div class="user-face">
+                            <img id="userface" src="<%=userinfo[0].face%>" alt=""><br>
+                            <input name="face" id="file" type="file"><br>
+                            <button class="btn">编辑</button><br>
+                            <input type="submit" value="修改资料" class="btn">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

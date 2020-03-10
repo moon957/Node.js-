@@ -1,0 +1,25 @@
+<div class="blognew">
+    <span>站长推荐</span>
+    <div class="ka-img my-3">
+        <a href="/detail?id=<%=tui[0].id%>">
+            <div><span><%=tui[0].title%></span></div>
+            <img src="<%=tui[0].logo%>" alt="">
+        </a>
+    </div>
+    <div>
+        <ul class="list-inline tui-menu">
+            <%for(var i=1;i<tui.length;i++){%>
+            <li>
+                <div>
+                    <img src="<%=tui[i].logo%>" alt="">
+                </div>
+                <div>
+                    <a href="/detail?id=<%=tui[i].id%>">
+                            <%=tui[i].title%>
+                    </a>
+                </div>
+            </li>
+            <%}%>
+            </ul>
+        </div>
+    </div>

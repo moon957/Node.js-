@@ -1,0 +1,23 @@
+<div class="container-fluid toptitle">
+    <div class="header container">
+        <div class="row">
+            <div class="col-lg-2 title">
+                <span class="logo">
+                    毛豆个人博客
+                </span>
+            </div>
+            <div class="col-lg-10">
+                <ul class="list-inline nav text-center">
+                    <%for(var i=0;i<title.length;i++){%>
+                    <% if(i==titleindex){%>
+                    <li class="list-inline-item bgcolor"><a href="<%=title[i].action%>"><%=title[i].title%></a></li>
+                    <%}else{%>
+                    <li class="list-inline-item"><a href="<%=title[i].action%>"><%=title[i].title%></a></li>
+                    <%}%>
+                    <%}%>
+                    <li class="text-right"><img class="searchbtn" src="icon/bg.png" /></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

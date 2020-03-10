@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时间轴</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <%-include('./header/header.ejs')%>
+    <div class="container">
+        <div class="bloglist">
+            <span class="top-line">往期文章
+            </span>
+            <div class="blog-date">
+                <ul class="list-inline">
+                    <%for(var i=0;i<pageData.length;i++){%>
+                    <li class="time-li">
+                        <span><%=new Date(pageData[i].times).toLocaleDateString()%></span>
+                        <span><a href="/detail?id=<%=pageData[i].id%>"><%=pageData[i].title%></a></span>
+                    </li>
+                    <%}%>
+                </ul>
+            </div>
+            <div class="item-nav-page">
+                <a href="#">上一页</a>
+                <a class="page-a" href="/blogtime?page=1&num=10">1</a>
+                <a class="page-a" href="/blogtime?page=2&num=10">2</a>
+                <a class="page-a" href="/blogtime?page=3&num=10">3</a>
+                <a class="page-a" href="/blogtime?page=4&num=10">4</a>
+                <a class="page-a" href="/blogtime?page=5&num=10">5</a>
+                <a href="#">下一页</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

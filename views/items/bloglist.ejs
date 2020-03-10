@@ -1,0 +1,31 @@
+<div class="blog">
+    <span class="b-title">最新博文</span>
+    <%for(var i=0;i<newsblog.length;i++){%>
+    <div class="b-lists">
+        <div>
+            <% if(i<3){%>
+            <span class="b-lists-ding"><b>【顶】</b></span>
+            <%}else{%>
+            <%}%>
+            <span><b><%=newsblog[i].title%></b></span>
+        </div>
+        <div class="b-lists-item">
+            <div>
+                <span><%=newsblog[i].blogtype%></span>
+                <img src="<%=newsblog[i].logo%>" alt="">
+            </div>
+            <div>
+                <p><%=newsblog[i].desinfo%>
+                </p>
+                <div class="b-lists-user">
+                    <img src="<%=newsblog[i].face%>" alt="">
+                    <span><%=new Date(newsblog[i].times).toLocaleDateString()%></span>
+                    <span>【<span><%=newsblog[i].blogtype%></span>】</span>
+                    <a href="/detail?id=<%=newsblog[i].id%>">阅读更多</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%}%>
+        
+</div>

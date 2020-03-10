@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>管理界面</title>
+    <link rel="stylesheet" href="css/userindex.css">
+    <script src="js/jquery-1.9.1.js"></script>
+    <script>
+        $(function () {
+            if (window.history && window.history.pushState) {
+                history.pushState("forward", null, location.href);
+                $(window).on("popstate", function () {
+
+                    history.pushState("forward", null, location.href);
+
+                });
+            }
+            $("#file").change(function () {
+                changepic();
+            });
+            //实现图片预览
+            function changepic() {
+                var reads = new FileReader();
+                var f = $("#file")[0].files[0];
+                reads.readAsDataURL(f);
+                reads.onload = function (e) {
+                    $("#userface").attr("src", this.result);
+                };
+            }
+        });
+        function submitinfo() {
+            if (confirm("确认是否修改个人资料？？")) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="par">
+        <div class="par-top">
+            <span>欢迎,<span class="name"><%=userinfo[0].name%></span>登录</span>
+            <a href="/close">退出</a>
+        </div>
+        <div class="par-bot">
+            <div class="par-bot-left">
+                <ul class="left-nav">
+                    <li><a href="/userguan">用户的信息</a></li>
+                    <li><a href="/sendblog">发表博客</a></li>
+                    <li><a href="/liusend">留言回复</a></li>
+                </ul>
+            </div>
+            <div class="par-bot-right">
+                <div class="liuyan">
+                    <div>
+                        <p>未回复的留言：</p>
+                        <ul class="liuyanmenu">
+                            <%for(var i=0;i<unread.length;i++){%>
+                            <li class="msglist" data-name="<%=unread[i].nick%>" data-id="<%=unread[i].id%>">
+                                <img src="<%=unread[i].face%>" alt="">
+                                <span><%=unread[i].nick%>:</span>
+                                <span><%=unread[i].content%></span>
+                            </li>
+                            <%}%>
+                        </ul>
+                    </div>
+                    <div class="huifu">
+                        <form action="/huifu" method="POST">
+                                <p>给<span id="nick">***</span>回复：</p>
+                                <input id="userid" name="id" type="text" value="1">
+                                <textarea name="content"></textarea>
+                                <br>
+                                <input type="submit" value="回复消息">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+$(function (){
+    $(".msglist").click(function (){
+        $("#nick").html($(this).attr("data-name"));
+        $("#userid").val($(this).attr("data-id"));
+    });
+});
+</script>
+</html>

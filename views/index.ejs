@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <%-include('./header/header.ejs')%>
+    <%-include('items/search.ejs')%>
+    <%-include('items/banner.ejs')%>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 native">
+                <%-include('items/seleka.ejs')%>
+                <%-include('items/tebie.ejs')%>
+                <div class="stat-img">
+                    <img src="icon/longad.jpg" alt="">
+                </div>
+                <%-include('items/bloglist.ejs')%>
+            </div>
+            <div class="col-lg-3">
+                <%-include('newsblog/newsblog.ejs')%>
+                <%-include('items/dianji.ejs')%>
+                <%-include('items/tuijian.ejs')%>
+                <%-include('items/smallimg.ejs')%>
+                <%-include('items/zhan.ejs')%>
+                <%-include('items/youqing.ejs')%>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+
+    </div>
+    <div class="backtop">
+        <a href="#">↑</a>
+    </div>
+</body>
+
+</html>

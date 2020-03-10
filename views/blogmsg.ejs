@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>留言</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <%-include('./header/header.ejs')%>
+    <%-include('items/search.ejs')%>
+    <div class="container">
+        <div class="msg">
+            <span class="top-line">留言</span>
+            <div class="form-list">
+                <form action="/sendmsg" method="POST">
+                    <ul class="list-inline form-nav">
+                        <li>
+                            <span>姓名：</span>
+                            <input type="text" name="nick" placeholder="请输入您的姓名....">
+                        </li>
+                        <li class="faceitems">
+                            <span>选择头像：</span>
+                            <input name="face" class="tx1 addface" value="http://localhost:8100/userface/tx1.jpg"
+                                checked type="radio">
+                            <input name="face" class="tx2" value="http://localhost:8100/userface/tx2.jpg" type="radio">
+                            <input name="face" class="tx3" value="http://localhost:8100/userface/tx3.jpg" type="radio">
+                            <input name="face" class="tx4" value="http://localhost:8100/userface/tx4.jpg" type="radio">
+                            <input name="face" class="tx5" value="http://localhost:8100/userface/tx5.jpg" type="radio">
+                            <input name="face" class="tx6" value="http://localhost:8100/userface/tx6.jpg" type="radio">
+                            <input name="face" class="tx7" value="http://localhost:8100/userface/tx7.jpg" type="radio">
+                            <input name="face" class="tx8" value="http://localhost:8100/userface/tx8.jpg" type="radio">
+                        </li>
+                        <li>
+                            <span>留言内容：</span>
+                            <textarea name="content"></textarea>
+                        </li>
+                        <li>
+                            <input type="submit" value="留言">
+                        </li>
+                    </ul>
+                </form>
+                <div class="msg-item">
+                    <%for(var i=0;i<findMsg.length;i++){%>
+                    <div class="msg-box">
+                        <div>
+                            <div class="msg-left">
+                                <img src="<%=findMsg[i].face%>" alt="">
+                            </div>
+                            <div class="msg-right">
+                                <div>
+                                    <span><%=findMsg[i].nick%></span>
+                                    <span><%=new Date(findMsg[i].times).toLocaleString()%></span>
+                                </div>
+                                <div>
+                                    <%=findMsg[i].content%>
+                                </div>
+                            </div>
+                        </div>
+                        <%for(var k=0;k<backmsg.length;k++){%>
+                        <%if(findMsg[i].id==backmsg[k].id){%>
+                        <div class="back">
+                            <span>回复的消息：</span>
+                            <span> <%=backmsg[k].content%></span>
+                        </div>
+                        <%}%>
+                        <%}%>
+                    </div>
+                    <%}%>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+        <div class="backtop">
+            <a href="#">↑</a>
+        </div>
+</body>
+
+</html>

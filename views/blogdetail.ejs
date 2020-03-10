@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <%-include('./header/header.ejs')%>
+    <%-include('items/search.ejs')%>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 native">
+                <div class="detail">
+                    <span class="b-title"><%=blog[0].blogtype%>
+                        <span class="web-nav">您现在的位置：<a href="/">首页</a>><%=blog[0].blogtype%></span>
+                    </span>
+                    <div class="blog-content">
+                        <h5><%=blog[0].title%></h3>
+                            <div class="blog-user">
+                                <img src="img/avatar.jpg" alt="">
+                                <span><%=new Date(blog[0].times).toLocaleDateString()%></span>
+                                <span>【<%=blog[0].blogtype%>】</span>
+                                <span><%=blog[0].num%>人已阅读</span>
+                            </div>
+                            <div class="blog-detail">
+                                <b>简介:</b>
+                                <span><%=blog[0].desinfo%></span>
+                            </div>
+                            <div class="blog-text">
+                                <div class="blog-data">
+                                        <%-blog[0].content%>
+                                </div>
+                                <div class="blog-btn">
+                                    <button>赏个赞!(0)</button>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <%-include('newsblog/newsblog.ejs')%>
+                <%-include('items/dianji.ejs')%>
+                <%-include('items/tuijian.ejs')%>
+                <%-include('items/smallimg.ejs')%>
+                <%-include('items/zhan.ejs')%>
+                <%-include('items/youqing.ejs')%>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+
+    </div>
+    <div class="backtop">
+        <a href="#">↑</a>
+    </div>
+</body>
+
+</html>
